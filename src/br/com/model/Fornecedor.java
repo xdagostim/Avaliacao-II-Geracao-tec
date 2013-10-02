@@ -4,7 +4,7 @@ public class Fornecedor extends Pessoa {
 
     private int id_fornecedor;
     private String nomeEmpresa;
-    private int id_produto;
+    private Produto produto;
     private String cnpj;
     private String nomeRepresentante;
 
@@ -27,12 +27,12 @@ public class Fornecedor extends Pessoa {
         this.nomeEmpresa = nomeEmpresa;
     }
 
-    public int getId_produto() {
-        return id_produto;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setId_produto(int id_produto) {
-        this.id_produto = id_produto;
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
     public String getCnpj() {
@@ -53,6 +53,6 @@ public class Fornecedor extends Pessoa {
 
     @Override
     public String toString() {
-        return "Fornecedor{" + "id_fornecedor=" + id_fornecedor + ", nomeEmpresa=" + nomeEmpresa + ", id_produto=" + id_produto + ", cnpj=" + cnpj + ", nomeRepresentante=" + nomeRepresentante + '}';
+        return "Fornecedor{" + "id_fornecedor=" + id_fornecedor + ", nomeEmpresa=" + nomeEmpresa + ", produto=" + produto + ", cnpj=" + cnpj + ", nomeRepresentante=" + nomeRepresentante + '}';
     }
 }

@@ -3,7 +3,7 @@ package br.com.model;
 public class Acessorio extends Produto {
 
     private int id_acessorio;
-    private String id_tipoConsole;
+    private Console tipoConsole;
 
     public Acessorio() {
     }
@@ -16,16 +16,16 @@ public class Acessorio extends Produto {
         this.id_acessorio = id_acessorio;
     }
 
-    public String getId_tipoConsole() {
-        return id_tipoConsole;
+    public Console getTipoConsole() {
+        return tipoConsole;
     }
 
-    public void setId_tipoConsole(String id_console) {
-        this.id_tipoConsole = id_console;
+    public void setTipoConsole(Console tipoConsole) {
+        this.tipoConsole = tipoConsole;
     }
 
     @Override
     public String toString() {
-        return "Acessorio{" + "id_acessorio=" + id_acessorio + ", id_tipoConsole=" + id_tipoConsole + '}';
+        return "Acessorio{" + "id_acessorio=" + id_acessorio + ", tipoConsole=" + tipoConsole + '}';
     }
 }

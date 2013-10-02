@@ -2,12 +2,21 @@ package br.com.model;
 
 public abstract class Produto {
 
+    private int id_produto;
     private double preco;
-    private int id_fornecedor;
+    private Fornecedor fornecedor;
     private String descricao;
     private String nome;
 
     public Produto() {
+    }
+
+    public int getId_produto() {
+        return id_produto;
+    }
+
+    public void setId_produto(int id_produto) {
+        this.id_produto = id_produto;
     }
 
     public String getNome() {
@@ -26,12 +35,12 @@ public abstract class Produto {
         this.preco = preco;
     }
 
-    public int getId_fornecedor() {
-        return id_fornecedor;
+    public Fornecedor getFornecedor() {
+        return fornecedor;
     }
 
-    public void setId_fornecedor(int id_fornecedor) {
-        this.id_fornecedor = id_fornecedor;
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
     }
 
     public String getDescricao() {
@@ -44,6 +53,6 @@ public abstract class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "preco=" + preco + ", id_fornecedor=" + id_fornecedor + ", descricao=" + descricao + '}';
+        return "Produto{" + "id_produto=" + id_produto + ", preco=" + preco + ", fornecedor=" + fornecedor + ", descricao=" + descricao + ", nome=" + nome + '}';
     }
 }

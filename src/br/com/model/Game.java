@@ -3,7 +3,7 @@ package br.com.model;
 public class Game extends Produto {
 
     private int id_jogo;
-    private int id_tipoGenero;
+    private Genero tipoGenero;
     private int classificacaoEtaria;
     private String tipoMidia;
 
@@ -18,12 +18,12 @@ public class Game extends Produto {
         this.id_jogo = id_jogo;
     }
 
-    public int getId_tipoGenero() {
-        return id_tipoGenero;
+    public Genero getTipoGenero() {
+        return tipoGenero;
     }
 
-    public void setId_tipoGenero(int id_genero) {
-        this.id_tipoGenero = id_tipoGenero;
+    public void setTipoGenero(Genero tipoGenero) {
+        this.tipoGenero = tipoGenero;
     }
 
     public int getClassificacaoEtaria() {
@@ -44,6 +44,6 @@ public class Game extends Produto {
 
     @Override
     public String toString() {
-        return "Game{" + "id_jogo=" + id_jogo + ", id_tipoGenero=" + id_tipoGenero + ", classificacaoEtaria=" + classificacaoEtaria + ", tipoMidia=" + tipoMidia + '}';
+        return "Game{" + "id_jogo=" + id_jogo + ", tipoGenero=" + tipoGenero + ", classificacaoEtaria=" + classificacaoEtaria + ", tipoMidia=" + tipoMidia + '}';
     }
 }
