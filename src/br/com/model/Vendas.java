@@ -2,6 +2,7 @@ package br.com.model;
 
 public class Vendas {
 
+    private int id_vendas;
     private Cliente cliente;
     private Produto produto;
     private Funcionario funcionario;
@@ -9,6 +10,14 @@ public class Vendas {
     private int quantidade;
 
     public Vendas() {
+    }
+
+    public int getId_vendas() {
+        return id_vendas;
+    }
+
+    public void setId_vendas(int id_vendas) {
+        this.id_vendas = id_vendas;
     }
 
     public Cliente getCliente() {
@@ -53,6 +62,6 @@ public class Vendas {
 
     @Override
     public String toString() {
-        return "Vendas{" + "cliente=" + cliente + ", produto=" + produto + ", funcionario=" + funcionario + ", precovenda=" + precovenda + ", quantidade=" + quantidade + '}';
+        return "Vendas{" + "id_vendas=" + id_vendas + ", cliente=" + cliente + ", produto=" + produto + ", funcionario=" + funcionario + ", precovenda=" + precovenda + ", quantidade=" + quantidade + '}';
     }
 }
