@@ -4,12 +4,21 @@ import java.util.Date;
 
 public class SaidaProduto {
 
+    private int id_saidaProduto;
     private Produto produto;
     private String motivo;
     private Date dataSaida;
     private int quantidadeSaida;
 
     public SaidaProduto() {
+    }
+
+    public int getId_saidaProduto() {
+        return id_saidaProduto;
+    }
+
+    public void setId_saidaProduto(int id_saidaProduto) {
+        this.id_saidaProduto = id_saidaProduto;
     }
 
     public Produto getProduto() {
@@ -46,6 +55,6 @@ public class SaidaProduto {
 
     @Override
     public String toString() {
-        return "SaidaProduto{" + "produto=" + produto + ", motivo=" + motivo + ", dataSaida=" + dataSaida + ", quantidadeSaida=" + quantidadeSaida + '}';
+        return "SaidaProduto{" + "id_saidaProduto=" + id_saidaProduto + ", produto=" + produto + ", motivo=" + motivo + ", dataSaida=" + dataSaida + ", quantidadeSaida=" + quantidadeSaida + '}';
     }
 }

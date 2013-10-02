@@ -7,7 +7,7 @@ public class EntradaProduto {
     private int id_entraProduto;
     private Produto produto;
     private Date dataEntrada;
-    private String transportadora;
+    private Transportador transportador;
 
     public EntradaProduto() {
     }
@@ -36,16 +36,16 @@ public class EntradaProduto {
         this.dataEntrada = dataEntrada;
     }
 
-    public String getTransportadora() {
-        return transportadora;
+    public Transportador getTransportador() {
+        return transportador;
     }
 
-    public void setTransportadora(String transportadora) {
-        this.transportadora = transportadora;
+    public void setTransportador(Transportador transportador) {
+        this.transportador = transportador;
     }
 
     @Override
     public String toString() {
-        return "EntradaProduto{" + "id_entraProduto=" + id_entraProduto + ", produto=" + produto + ", dataEntrada=" + dataEntrada + ", transportadora=" + transportadora + '}';
+        return "EntradaProduto{" + "id_entraProduto=" + id_entraProduto + ", produto=" + produto + ", dataEntrada=" + dataEntrada + ", transportador=" + transportador + '}';
     }
 }
