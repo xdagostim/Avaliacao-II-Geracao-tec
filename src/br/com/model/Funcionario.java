@@ -6,7 +6,7 @@ public class Funcionario extends Pessoa {
 
     private int id_funcionario;
     private String cargo;
-    private String cargaHoraria;
+    private double cargaHoraria;
     private double salario;
     private String ctps;
     private Date dataAdmissao;
@@ -32,11 +32,11 @@ public class Funcionario extends Pessoa {
         this.cargo = cargo;
     }
 
-    public String getCargaHoraria() {
+    public double getCargaHoraria() {
         return cargaHoraria;
     }
 
-    public void setCargaHoraria(String cargaHoraria) {
+    public void setCargaHoraria(double cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
     }
 
