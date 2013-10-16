@@ -170,14 +170,20 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                 f.setTelefone(rs.getString("telefone"));
                 f.setRua(rs.getString("rua"));
                 f.setNumero(rs.getInt("numero"));
+                f.setComplemento(rs.getString("complemento"));
+                f.setBairro(rs.getString("bairro"));
+                f.setCidade(rs.getString("cidade"));
+                f.setCep(rs.getString("cep"));
+                f.setEstado(rs.getString("estado"));
+                f.setSexo(rs.getString("sexo"));
                 f.setDataNascimento(rs.getDate("dataNascimento"));
+                f.setCargo(rs.getString("cargo"));
+                f.setCargaHoraria(rs.getDouble("cargahoraria"));
+                f.setSalario(rs.getDouble("salario"));
+                f.setCtps(rs.getString("ctps"));
                 f.setDataAdmissao(rs.getDate("dataAdmissao"));
-                u.setCpf(rs.getString("cpf"));
-                u.setLogin(rs.getString("login"));
-                u.setSenha(rs.getString("senha"));
-                u.setSexo(rs.getString("sexo"));
-                
-
+                f.setLogin(rs.getString("login"));
+                f.setSenha(rs.getString("senha"));
                 funcionarios.add(f);
             }
         } catch (Exception e) {
