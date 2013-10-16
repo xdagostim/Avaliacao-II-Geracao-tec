@@ -10,6 +10,8 @@ public class Funcionario extends Pessoa {
     private double salario;
     private String ctps;
     private Date dataAdmissao;
+    private String login;
+    private String senha;
 
     public Funcionario() {
     }
@@ -62,8 +64,24 @@ public class Funcionario extends Pessoa {
         this.dataAdmissao = dataAdmissao;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     @Override
     public String toString() {
-        return "Funcionario{" + "id_funcionario=" + id_funcionario + ", cargo=" + cargo + ", cargaHoraria=" + cargaHoraria + ", salario=" + salario + ", ctps=" + ctps + ", dataAdmissao=" + dataAdmissao + '}';
+        return "Funcionario{" + "id_funcionario=" + id_funcionario + ", cargo=" + cargo + ", cargaHoraria=" + cargaHoraria + ", salario=" + salario + ", ctps=" + ctps + ", dataAdmissao=" + dataAdmissao + ", login=" + login + ", senha=" + senha + '}';
     }
 }
