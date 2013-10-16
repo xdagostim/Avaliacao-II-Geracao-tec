@@ -21,14 +21,6 @@ public abstract class Pessoa {
     public Pessoa() {
     }
 
-    public int getId_pessoa() {
-        return id_pessoa;
-    }
-
-    public void setId_pessoa(int id_pessoa) {
-        this.id_pessoa = id_pessoa;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -135,6 +127,6 @@ public abstract class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" + "id_pessoa=" + id_pessoa + ", nome=" + nome + ", rg=" + rg + ", cpf=" + cpf + ", telefone=" + telefone + ", rua=" + rua + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade + ", cep=" + cep + ", estado=" + estado + ", sexo=" + sexo + ", dataNascimento=" + dataNascimento + '}';
+        return "Pessoa{" + "nome=" + nome + ", rg=" + rg + ", cpf=" + cpf + ", telefone=" + telefone + ", rua=" + rua + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade + ", cep=" + cep + ", estado=" + estado + ", sexo=" + sexo + ", dataNascimento=" + dataNascimento + '}';
     }
 }
