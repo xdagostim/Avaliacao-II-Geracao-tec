@@ -1,6 +1,6 @@
 package br.com.model;
 
-public class Fornecedor extends Pessoa {
+public class Fornecedor extends PessoaJuridica {
 
     private int id_fornecedor;
     private String nomeEmpresa;

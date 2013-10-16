@@ -4,7 +4,6 @@ import java.util.Date;
 
 public abstract class Pessoa {
 
-    private int id_pessoa;
     private String nome;
     private String rg;
     private String cpf;
