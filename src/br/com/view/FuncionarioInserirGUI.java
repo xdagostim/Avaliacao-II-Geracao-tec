@@ -88,6 +88,8 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
 
         jLabel1.setText("Código: ");
 
+        txCodigo.setEditable(false);
+
         jLabel2.setText("Nome: ");
 
         jLabel3.setText("Data Nascimento: ");
