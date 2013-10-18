@@ -199,12 +199,101 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
     }
 
     @Override
-    public Funcionario listById(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Funcionario listById(int id_funcionario) {
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        Funcionario f = new Funcionario();
+        
+        try{
+            con = ConnectionFactory.getConnection();
+            pstm = con.prepareStatement(LISTBYID);
+            pstm.setInt(1, id_funcionario);
+            rs = pstm.executeQuery();
+            
+            while(rs.next()){
+                f.setId_funcionario(rs.getInt("id_funcionario"));
+                f.setNome(rs.getString("nome"));
+                f.setRg(rs.getString("rg"));
+                f.setCpf(rs.getString("cpf"));
+                f.setTelefone(rs.getString("telefone"));
+                f.setRua(rs.getString("rua"));
+                f.setNumero(rs.getInt("numero"));
+                f.setComplemento(rs.getString("complemento"));
+                f.setBairro(rs.getString("bairro"));
+                f.setCidade(rs.getString("cidade"));
+                f.setCep(rs.getString("cep"));
+                f.setEstado(rs.getString("estado"));
+                f.setSexo(rs.getString("sexo"));
+                f.setDataNascimento(rs.getDate("dataNascimento"));
+                f.setCargo(rs.getString("cargo"));
+                f.setCargaHoraria(rs.getDouble("cargahoraria"));
+                f.setSalario(rs.getDouble("salario"));
+                f.setCtps(rs.getString("ctps"));
+                f.setDataAdmissao(rs.getDate("dataAdmissao"));
+                f.setLogin(rs.getString("login"));
+                f.setSenha(rs.getString("senha"));
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao listar funcionário: " +e.getMessage());
+        } finally {
+            try{
+                ConnectionFactory.closeConnection(con, pstm, rs);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Erro ao fechar conexão: " +e.getMessage());
+            }
+        }
+        
+        return f;
     }
 
     @Override
     public List<Funcionario> listByNome(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        List<Funcionario> funcionarios = new ArrayList<>();
+        
+        try {
+            con = ConnectionFactory.getConnection();
+            pstm = con.prepareStatement(LISTBYNOME);
+            pstm.setString(1, "%"+ nome +"%");
+            rs = pstm.executeQuery();
+            
+            while(rs.next()){
+                Funcionario f = new Funcionario();
+                f.setId_funcionario(rs.getInt("id_funcionario"));
+                f.setNome(rs.getString("nome"));
+                f.setRg(rs.getString("rg"));
+                f.setCpf(rs.getString("cpf"));
+                f.setTelefone(rs.getString("telefone"));
+                f.setRua(rs.getString("rua"));
+                f.setNumero(rs.getInt("numero"));
+                f.setComplemento(rs.getString("complemento"));
+                f.setBairro(rs.getString("bairro"));
+                f.setCidade(rs.getString("cidade"));
+                f.setCep(rs.getString("cep"));
+                f.setEstado(rs.getString("estado"));
+                f.setSexo(rs.getString("sexo"));
+                f.setDataNascimento(rs.getDate("dataNascimento"));
+                f.setCargo(rs.getString("cargo"));
+                f.setCargaHoraria(rs.getDouble("cargahoraria"));
+                f.setSalario(rs.getDouble("salario"));
+                f.setCtps(rs.getString("ctps"));
+                f.setDataAdmissao(rs.getDate("dataAdmissao"));
+                f.setLogin(rs.getString("login"));
+                f.setSenha(rs.getString("senha"));
+                funcionarios.add(f);
+            }
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao pesquisar funcionário! " +e.getMessage());
+        } finally {
+            try{
+                ConnectionFactory.closeConnection(con, pstm, rs);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Erro ao fechar conexão! " +e.getMessage());
+            }
+        }
+        return funcionarios;
     }
 }
