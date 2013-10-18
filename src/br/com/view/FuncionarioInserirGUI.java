@@ -69,6 +69,8 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         rbFemino = new javax.swing.JRadioButton();
         rbMasculino = new javax.swing.JRadioButton();
+        btSalvar = new javax.swing.JButton();
+        btLimpar = new javax.swing.JButton();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -128,6 +130,10 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
         rbFemino.setText("Feminino");
 
         rbMasculino.setText("Masculino");
+
+        btSalvar.setText("jButton1");
+
+        btLimpar.setText("jButton2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -222,7 +228,12 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
                                     .addComponent(jLabel16))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btSalvar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btLimpar)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -287,7 +298,11 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
                         .addComponent(jLabel22)
                         .addComponent(rbFemino)
                         .addComponent(rbMasculino)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btSalvar)
+                    .addComponent(btLimpar))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -339,6 +354,8 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
