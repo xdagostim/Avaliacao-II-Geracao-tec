@@ -116,17 +116,17 @@
         </Container>
         <Component class="javax.swing.JButton" name="txNovo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Novo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="txAlterar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton2"/>
+            <Property name="text" type="java.lang.String" value="Alterar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="txRemover">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton3"/>
+            <Property name="text" type="java.lang.String" value="Excluir"/>
           </Properties>
         </Component>
       </SubComponents>

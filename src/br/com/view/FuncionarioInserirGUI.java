@@ -131,9 +131,9 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
 
         rbMasculino.setText("Masculino");
 
-        btSalvar.setText("jButton1");
+        btSalvar.setText("Salvar");
 
-        btLimpar.setText("jButton2");
+        btLimpar.setText("Limpar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

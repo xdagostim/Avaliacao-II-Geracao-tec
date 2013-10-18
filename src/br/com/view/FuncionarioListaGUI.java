@@ -43,11 +43,11 @@ public class FuncionarioListaGUI extends javax.swing.JFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
-        txNovo.setText("jButton1");
+        txNovo.setText("Novo");
 
-        txAlterar.setText("jButton2");
+        txAlterar.setText("Alterar");
 
-        txRemover.setText("jButton3");
+        txRemover.setText("Excluir");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
