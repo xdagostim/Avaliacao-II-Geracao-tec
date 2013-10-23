@@ -37,6 +37,7 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
         txTelefone.setText(f.getTelefone());
         txRua.setText(f.getRua());
         txNumero.setText(Integer.toString(f.getNumero()));
+        txComplemento.setText(f.getComplemento());
         txBairro.setText(f.getBairro());
         txCidade.setText(f.getCidade());
         txEstado.setText(f.getEstado());
@@ -414,6 +415,7 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
         txTelefone.setText("");
         txRua.setText("");
         txNumero.setText("");
+        txComplemento.setText("");
         txBairro.setText("");
         txCidade.setText("");
         txEstado.setText("");
@@ -446,6 +448,7 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
         f.setTelefone(txTelefone.getText());
         f.setRua(txRua.getText());
         f.setNumero(Integer.parseInt(txNumero.getText()));
+        f.setComplemento(txComplemento.getText());
         f.setBairro(txBairro.getText());
         f.setCidade(txCidade.getText());
         f.setEstado(txEstado.getText());
