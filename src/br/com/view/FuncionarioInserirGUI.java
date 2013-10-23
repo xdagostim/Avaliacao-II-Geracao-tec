@@ -172,7 +172,7 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
 
         jLabel22.setText("Sexo: ");
 
-        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/ok-icon.png"))); // NOI18N
+        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/ok-icon2.png"))); // NOI18N
         btSalvar.setBorderPainted(false);
         btSalvar.setContentAreaFilled(false);
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +181,7 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
             }
         });
 
-        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/minus-icon.png"))); // NOI18N
+        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/minus-icon2.png"))); // NOI18N
         btLimpar.setBorderPainted(false);
         btLimpar.setContentAreaFilled(false);
         btLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -394,7 +394,7 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
                         .addComponent(jLabel24)
                         .addComponent(txSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(btLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 

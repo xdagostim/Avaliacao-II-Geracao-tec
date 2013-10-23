@@ -36,7 +36,7 @@ public class FuncionarioListaGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Funcionários Cadastrados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Funcionários Cadastrados", 2, 2));
 
         jLabel1.setText("Pesquisar: ");
 
@@ -48,21 +48,27 @@ public class FuncionarioListaGUI extends javax.swing.JFrame {
 
         tabelaFuncionarios.setBackground(new java.awt.Color(255, 255, 255));
 
-        txNovo.setText("Novo");
+        txNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/plus-icon2.png"))); // NOI18N
+        txNovo.setBorderPainted(false);
+        txNovo.setContentAreaFilled(false);
         txNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txNovoActionPerformed(evt);
             }
         });
 
-        txAlterar.setText("Alterar");
+        txAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/bullet-2-icon2.png"))); // NOI18N
+        txAlterar.setBorderPainted(false);
+        txAlterar.setContentAreaFilled(false);
         txAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txAlterarActionPerformed(evt);
             }
         });
 
-        txRemover.setText("Excluir");
+        txRemover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/cross-icon2.png"))); // NOI18N
+        txRemover.setBorderPainted(false);
+        txRemover.setContentAreaFilled(false);
         txRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txRemoverActionPerformed(evt);
@@ -77,20 +83,18 @@ public class FuncionarioListaGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tabelaFuncionarios)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 490, Short.MAX_VALUE)
+                        .addComponent(txNovo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txAlterar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txRemover))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 13, Short.MAX_VALUE)))
+                        .addComponent(txPesquisar)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txNovo)
-                .addGap(18, 18, 18)
-                .addComponent(txAlterar)
-                .addGap(18, 18, 18)
-                .addComponent(txRemover)
-                .addGap(33, 33, 33))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,12 +105,13 @@ public class FuncionarioListaGUI extends javax.swing.JFrame {
                     .addComponent(txPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(tabelaFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txNovo)
-                    .addComponent(txAlterar)
-                    .addComponent(txRemover))
-                .addGap(27, 27, 27))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txRemover)
+                        .addComponent(txAlterar))
+                    .addComponent(txNovo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

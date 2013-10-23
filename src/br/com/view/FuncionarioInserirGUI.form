@@ -294,7 +294,7 @@
                           <Component id="txSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="btSalvar" min="-2" pref="59" max="-2" attributes="0"/>
-                      <Component id="btLimpar" pref="0" max="32767" attributes="0"/>
+                      <Component id="btLimpar" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -456,7 +456,7 @@
         <Component class="javax.swing.JButton" name="btSalvar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/imagens/ok-icon.png"/>
+              <Image iconType="3" name="/br/com/imagens/ok-icon2.png"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -468,7 +468,7 @@
         <Component class="javax.swing.JButton" name="btLimpar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/imagens/minus-icon.png"/>
+              <Image iconType="3" name="/br/com/imagens/minus-icon2.png"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
