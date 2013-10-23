@@ -92,6 +92,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txUsuario">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txUsuarioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -111,9 +114,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txSenha">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

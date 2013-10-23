@@ -92,15 +92,13 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       FuncionarioListaGUI fl = new FuncionarioListaGUI();
-       fl.setLocationRelativeTo(null);
-       fl.setVisible(true);
+        FuncionarioListaGUI fl = new FuncionarioListaGUI();
+        fl.setLocationRelativeTo(null);
+        fl.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;
