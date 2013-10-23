@@ -131,7 +131,7 @@ public class FuncionarioListaGUI extends javax.swing.JFrame {
             FuncionarioInserirGUI fu = new FuncionarioInserirGUI(modelo, linhaSelecionada, idFuncionario);
             fu.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada.");
+            JOptionPane.showMessageDialog(null, "Por favor selecione a linha que deseja alterar!");
         }
     }//GEN-LAST:event_txAlterarActionPerformed
 
@@ -162,11 +162,11 @@ public class FuncionarioListaGUI extends javax.swing.JFrame {
             int idFuncionario = (int) tabela.getValueAt(linhaSelecionada, 0);
             FuncionarioController fc = new FuncionarioController();
             if (fc.remove(idFuncionario)) {
-                JOptionPane.showMessageDialog(null, "Funcionário excluido com sucesso.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ");
+                JOptionPane.showMessageDialog(null, "Funcionário removido com sucesso!");
                 modelo.removeRow(linhaSelecionada);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada.");
+            JOptionPane.showMessageDialog(null, "Por favor selecione a linha que deseja remover!");
         }
     }//GEN-LAST:event_txRemoverActionPerformed
 

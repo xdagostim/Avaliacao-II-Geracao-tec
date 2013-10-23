@@ -31,13 +31,13 @@ public class JanelaLogin extends javax.swing.JFrame {
         boolean resposta = fc.validaLogin(login, senha);
 
         if (resposta == true) {
-            JOptionPane.showMessageDialog(null, "login realizado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!\n\nPressione OK para continuar.");
             this.dispose();
             JanelaPrincipal jp = new JanelaPrincipal();
             jp.setVisible(true);
 
         } else {
-            JOptionPane.showMessageDialog(null, "login não realizado!\n Favor conferir o usuario e senha digitado!");
+            JOptionPane.showMessageDialog(null, "Erro ao digitar Usuário ou Senha!\n\nPor favor tente novamente ou entre em contato com o administrador do Sistema");
         }
     }
 

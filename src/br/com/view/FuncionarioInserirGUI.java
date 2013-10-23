@@ -439,7 +439,7 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
             String data = txDataNascimento.getText();
             f.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(data));
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao converter a data: " + e);
+            JOptionPane.showMessageDialog(null, "Erro na conversão da data: " + e);
         }
         f.setRg(txRg.getText());
         f.setCpf(txCpf.getText());
@@ -458,7 +458,7 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
             String data = txDataAdmissao.getText();
             f.setDataAdmissao(new SimpleDateFormat("dd/MM/yyyy").parse(data));
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao converter a data: " + e);
+            JOptionPane.showMessageDialog(null, "Erro na conversão da data: " + e);
         }
         if (rbFeminino.isSelected()) {
             f.setSexo("Feminino");
@@ -475,14 +475,14 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
             int id = fc.salvar(f);
             if (id > 0) {
                 modelo.addRow(new Object[]{id, f.getNome(), f.getSalario(), f.getLogin()});
-                JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso.");
+                JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!");
             }
         } else {
             int id = fc.salvar(f);
             if (id > 0) {
                 modelo.removeRow(linhaSelecionada);
                 modelo.addRow(new Object[]{id, f.getNome(), f.getSalario(), f.getLogin()});
-                JOptionPane.showMessageDialog(null, "Usuário atualizado com sucesso.");
+                JOptionPane.showMessageDialog(null, "Usuário atualizado com sucesso!");
             }
         }
         dispose();
