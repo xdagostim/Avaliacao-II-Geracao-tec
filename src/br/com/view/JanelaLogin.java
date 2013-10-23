@@ -38,6 +38,7 @@ public class JanelaLogin extends javax.swing.JFrame {
 
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao digitar Usuário ou Senha!\n\nPor favor tente novamente ou entre em contato com o administrador do Sistema");
+            txSenha.setText("");
         }
     }
 

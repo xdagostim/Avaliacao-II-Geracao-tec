@@ -64,7 +64,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Notary-icon.png"))); // NOI18N
+        btFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/competitors-icon.png"))); // NOI18N
         btFornecedor.setText("Fornecedor");
         btFornecedor.setBorderPainted(false);
         btFornecedor.setContentAreaFilled(false);
