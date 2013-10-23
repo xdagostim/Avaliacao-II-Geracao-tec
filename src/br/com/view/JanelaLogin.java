@@ -84,6 +84,7 @@ public class JanelaLogin extends javax.swing.JFrame {
         jLabel2.setText("SENHA");
 
         btEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/arrow-right-icon3.png"))); // NOI18N
+        btEntrar.setToolTipText("Entrar");
         btEntrar.setBorderPainted(false);
         btEntrar.setContentAreaFilled(false);
         btEntrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -101,6 +102,7 @@ public class JanelaLogin extends javax.swing.JFrame {
         });
 
         btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/arrow-left-icon3.png"))); // NOI18N
+        btSair.setToolTipText("Sair");
         btSair.setBorderPainted(false);
         btSair.setContentAreaFilled(false);
         btSair.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

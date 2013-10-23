@@ -173,6 +173,7 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
         jLabel22.setText("Sexo: ");
 
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/ok-icon2.png"))); // NOI18N
+        btSalvar.setToolTipText("Salvar");
         btSalvar.setBorderPainted(false);
         btSalvar.setContentAreaFilled(false);
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +183,7 @@ public class FuncionarioInserirGUI extends javax.swing.JFrame {
         });
 
         btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/minus-icon2.png"))); // NOI18N
+        btLimpar.setToolTipText("Limpar");
         btLimpar.setBorderPainted(false);
         btLimpar.setContentAreaFilled(false);
         btLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));

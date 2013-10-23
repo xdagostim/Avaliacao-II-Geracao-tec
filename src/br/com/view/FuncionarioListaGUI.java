@@ -49,6 +49,7 @@ public class FuncionarioListaGUI extends javax.swing.JFrame {
         tabelaFuncionarios.setBackground(new java.awt.Color(255, 255, 255));
 
         txNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/plus-icon2.png"))); // NOI18N
+        txNovo.setToolTipText("Adicionar");
         txNovo.setBorderPainted(false);
         txNovo.setContentAreaFilled(false);
         txNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -58,6 +59,7 @@ public class FuncionarioListaGUI extends javax.swing.JFrame {
         });
 
         txAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/bullet-2-icon2.png"))); // NOI18N
+        txAlterar.setToolTipText("Modificar");
         txAlterar.setBorderPainted(false);
         txAlterar.setContentAreaFilled(false);
         txAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +69,7 @@ public class FuncionarioListaGUI extends javax.swing.JFrame {
         });
 
         txRemover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/cross-icon2.png"))); // NOI18N
+        txRemover.setToolTipText("Remover");
         txRemover.setBorderPainted(false);
         txRemover.setContentAreaFilled(false);
         txRemover.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +110,7 @@ public class FuncionarioListaGUI extends javax.swing.JFrame {
                 .addComponent(tabelaFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txRemover)
                         .addComponent(txAlterar))
                     .addComponent(txNovo))
