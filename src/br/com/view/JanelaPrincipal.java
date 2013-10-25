@@ -4,6 +4,9 @@
  */
 package br.com.view;
 
+import com.mysql.jdbc.interceptors.SessionAssociationInterceptor;
+import java.util.Map;
+
 /**
  *
  * @author guest01
@@ -31,6 +34,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btClientes = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btFornecedor = new javax.swing.JButton();
+        btLogout = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -71,6 +75,19 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btFornecedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btFornecedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
+        btLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Apps-session-logout-icon.png"))); // NOI18N
+        btLogout.setText("Logout");
+        btLogout.setToolTipText("Logout");
+        btLogout.setBorderPainted(false);
+        btLogout.setContentAreaFilled(false);
+        btLogout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btLogout.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -82,16 +99,20 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 .addComponent(btClientes)
                 .addGap(18, 18, 18)
                 .addComponent(btFornecedor)
-                .addContainerGap(461, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 354, Short.MAX_VALUE)
+                .addComponent(btLogout)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -142,12 +163,20 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         fl.setLocationRelativeTo(null);
         fl.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+    
+    private void btLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLogoutActionPerformed
+        dispose();
+        JanelaLogin jl = new JanelaLogin();
+        jl.setLocationRelativeTo(null);
+        jl.setVisible(true);
+    }//GEN-LAST:event_btLogoutActionPerformed
     /**
      * @param args the command line arguments
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btClientes;
     private javax.swing.JButton btFornecedor;
+    private javax.swing.JButton btLogout;
     private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;

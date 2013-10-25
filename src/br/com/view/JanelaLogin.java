@@ -35,6 +35,7 @@ public class JanelaLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!\n\nPressione OK para continuar.");
             this.dispose();
             JanelaPrincipal jp = new JanelaPrincipal();
+            jp.setLocationRelativeTo(null);
             jp.setVisible(true);
 
         } else {
@@ -167,10 +168,10 @@ public class JanelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txUsuarioActionPerformed
 
     private void txSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txSenhaKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             validarLogin();
         }
-        if(evt.getKeyCode() == KeyEvent.VK_ESCAPE){
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             System.exit(0);
         }
     }//GEN-LAST:event_txSenhaKeyPressed
@@ -184,17 +185,19 @@ public class JanelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btSairActionPerformed
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ESCAPE){
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             System.exit(0);
         }
     }//GEN-LAST:event_jPanel1KeyPressed
 
     private void txUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUsuarioKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ESCAPE){
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             System.exit(0);
         }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            JOptionPane.showMessageDialog(null, "Por favor, digite a sua senha!");
+        }
     }//GEN-LAST:event_txUsuarioKeyPressed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEntrar;
     private javax.swing.JButton btSair;
