@@ -48,15 +48,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
                       <Component id="txUsuario" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel1" alignment="0" pref="150" max="32767" attributes="0"/>
                       <Component id="txSenha" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btSair" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Component id="btEntrar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btSair" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="75" max="32767" attributes="0"/>
@@ -76,8 +76,8 @@
                   <Component id="txSenha" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
-                      <Component id="btSair" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="btEntrar" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="btSair" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btEntrar" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -112,7 +112,7 @@
         <Component class="javax.swing.JButton" name="btEntrar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/imagens/arrow-right-icon3.png"/>
+              <Image iconType="3" name="/br/com/imagens/ok-icon3.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Entrar"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -122,6 +122,7 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEntrarActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btEntrarKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txSenha">
@@ -132,7 +133,7 @@
         <Component class="javax.swing.JButton" name="btSair">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/imagens/arrow-left-icon3.png"/>
+              <Image iconType="3" name="/br/com/imagens/cross-icon3.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Sair"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -142,6 +143,7 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSairActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btSairKeyPressed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -84,7 +84,7 @@ public class JanelaLogin extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("SENHA");
 
-        btEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/arrow-right-icon3.png"))); // NOI18N
+        btEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/ok-icon3.png"))); // NOI18N
         btEntrar.setToolTipText("Entrar");
         btEntrar.setBorderPainted(false);
         btEntrar.setContentAreaFilled(false);
@@ -95,6 +95,11 @@ public class JanelaLogin extends javax.swing.JFrame {
                 btEntrarActionPerformed(evt);
             }
         });
+        btEntrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btEntrarKeyPressed(evt);
+            }
+        });
 
         txSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -102,7 +107,7 @@ public class JanelaLogin extends javax.swing.JFrame {
             }
         });
 
-        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/arrow-left-icon3.png"))); // NOI18N
+        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/cross-icon3.png"))); // NOI18N
         btSair.setToolTipText("Sair");
         btSair.setBorderPainted(false);
         btSair.setContentAreaFilled(false);
@@ -113,6 +118,11 @@ public class JanelaLogin extends javax.swing.JFrame {
                 btSairActionPerformed(evt);
             }
         });
+        btSair.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btSairKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,15 +130,15 @@ public class JanelaLogin extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txUsuario, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(txSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btSair)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txUsuario)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(txSenha)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btEntrar)
                         .addGap(18, 18, 18)
-                        .addComponent(btEntrar)))
+                        .addComponent(btSair)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -144,8 +154,8 @@ public class JanelaLogin extends javax.swing.JFrame {
                 .addComponent(txSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btSair)
-                    .addComponent(btEntrar))
+                    .addComponent(btSair, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btEntrar, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -198,6 +208,19 @@ public class JanelaLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, digite a sua senha!");
         }
     }//GEN-LAST:event_txUsuarioKeyPressed
+
+    private void btEntrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btEntrarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            validarLogin();
+        }
+    }//GEN-LAST:event_btEntrarKeyPressed
+
+    private void btSairKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btSairKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btSairKeyPressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEntrar;
     private javax.swing.JButton btSair;
