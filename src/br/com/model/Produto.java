@@ -7,6 +7,7 @@ public abstract class Produto {
     private Fornecedor fornecedor;
     private String descricao;
     private String nome;
+    private TipoProduto tipoProduto;
 
     public Produto() {
     }
@@ -51,8 +52,16 @@ public abstract class Produto {
         this.descricao = descricao;
     }
 
+    public TipoProduto getTipoProduto() {
+        return tipoProduto;
+    }
+
+    public void setTipoProduto(TipoProduto tipoProduto) {
+        this.tipoProduto = tipoProduto;
+    }
+
     @Override
     public String toString() {
-        return "Produto{" + "id_produto=" + id_produto + ", preco=" + preco + ", fornecedor=" + fornecedor + ", descricao=" + descricao + ", nome=" + nome + '}';
+        return "Produto{" + "id_produto=" + id_produto + ", preco=" + preco + ", fornecedor=" + fornecedor + ", descricao=" + descricao + ", nome=" + nome + ", tipoProduto=" + tipoProduto + '}';
     }
 }
