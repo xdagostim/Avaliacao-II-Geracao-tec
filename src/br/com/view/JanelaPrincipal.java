@@ -35,6 +35,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         btFornecedor = new javax.swing.JButton();
         btLogout = new javax.swing.JButton();
+        btTipoProduto = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -74,6 +75,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btFornecedor.setContentAreaFilled(false);
         btFornecedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btFornecedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFornecedorActionPerformed(evt);
+            }
+        });
 
         btLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Apps-session-logout-icon.png"))); // NOI18N
         btLogout.setText("Logout");
@@ -88,6 +94,19 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btTipoProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Actions-bookmark-new-list-icon.png"))); // NOI18N
+        btTipoProduto.setText("Categoria");
+        btTipoProduto.setToolTipText("");
+        btTipoProduto.setBorderPainted(false);
+        btTipoProduto.setContentAreaFilled(false);
+        btTipoProduto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btTipoProduto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btTipoProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTipoProdutoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -99,7 +118,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 .addComponent(btClientes)
                 .addGap(18, 18, 18)
                 .addComponent(btFornecedor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 354, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btTipoProduto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
                 .addComponent(btLogout)
                 .addContainerGap())
         );
@@ -107,12 +128,14 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btTipoProduto)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -126,7 +149,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(314, Short.MAX_VALUE))
+                .addGap(0, 345, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
@@ -170,6 +193,16 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jl.setLocationRelativeTo(null);
         jl.setVisible(true);
     }//GEN-LAST:event_btLogoutActionPerformed
+
+    private void btFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFornecedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btFornecedorActionPerformed
+
+    private void btTipoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTipoProdutoActionPerformed
+        TipoProdutoListaGUI tpl = new TipoProdutoListaGUI();
+        tpl.setLocationRelativeTo(null);
+        tpl.setVisible(true);
+    }//GEN-LAST:event_btTipoProdutoActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -177,6 +210,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btClientes;
     private javax.swing.JButton btFornecedor;
     private javax.swing.JButton btLogout;
+    private javax.swing.JButton btTipoProduto;
     private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
