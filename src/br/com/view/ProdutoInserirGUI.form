@@ -335,6 +335,9 @@
         <Component class="javax.swing.JTextField" name="txIdade">
         </Component>
         <Component class="javax.swing.JTextField" name="txFornecedor">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel29">
           <Properties>

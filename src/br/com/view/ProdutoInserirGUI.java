@@ -101,7 +101,7 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Cadastro de Produtos", 2, 2));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Cadastro de Produtos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
         jLabel1.setText("Código: ");
 
@@ -172,6 +172,8 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
         jLabel27.setText("Mídia:");
 
         jLabel28.setText("Classificação Etária:");
+
+        txFornecedor.setEditable(false);
 
         jLabel29.setText("Fornecedor:");
 
