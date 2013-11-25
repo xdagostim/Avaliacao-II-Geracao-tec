@@ -199,13 +199,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLogoutActionPerformed
-        dispose();
-        JanelaLogin jl = new JanelaLogin();
-        jl.setLocationRelativeTo(null);
-        jl.setVisible(true);
-    }//GEN-LAST:event_btLogoutActionPerformed
-
     private void btProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProdutoActionPerformed
         ProdutoListaGUI tpl = new ProdutoListaGUI();
         tpl.setLocationRelativeTo(null);
@@ -217,6 +210,13 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         tpl.setLocationRelativeTo(null);
         tpl.setVisible(true);
     }//GEN-LAST:event_btTipoProdutoActionPerformed
+
+    private void btLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLogoutActionPerformed
+        dispose();
+        JanelaLogin jl = new JanelaLogin();
+        jl.setLocationRelativeTo(null);
+        jl.setVisible(true);
+    }//GEN-LAST:event_btLogoutActionPerformed
 
     private void btFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFornecedorActionPerformed
         // TODO add your handling code here:
