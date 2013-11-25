@@ -205,7 +205,7 @@ public class JanelaLogin extends javax.swing.JFrame {
             System.exit(0);
         }
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            JOptionPane.showMessageDialog(null, "Por favor, digite a sua senha!");
+            JOptionPane.showMessageDialog(null, "Por favor, digite o usuário e senha!");                      
         }
     }//GEN-LAST:event_txUsuarioKeyPressed
 
