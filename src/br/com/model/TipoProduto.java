@@ -23,6 +23,6 @@ public class TipoProduto {
 
     @Override
     public String toString() {
-        return "TipoProduto{" + "id_categoria=" + id_categoria + ", nome=" + nome + '}';
+        return nome;
     }
 }

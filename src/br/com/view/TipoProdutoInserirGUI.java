@@ -52,7 +52,7 @@ public class TipoProdutoInserirGUI extends javax.swing.JFrame {
 
         jLabel15.setText("jLabel15");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -120,12 +120,11 @@ public class TipoProdutoInserirGUI extends javax.swing.JFrame {
                         .addComponent(txCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txNome, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel7)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txNome, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -163,8 +162,6 @@ public class TipoProdutoInserirGUI extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.getAccessibleContext().setAccessibleName("Cadastro de Categoria");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -183,7 +180,7 @@ public class TipoProdutoInserirGUI extends javax.swing.JFrame {
         TipoProdutoController tpc = new TipoProdutoController();
 
 
-        if (tp.getId_categoria()== 0) {
+        if (tp.getId_categoria() == 0) {
             int id = tpc.salvar(tp);
             if (id > 0) {
                 modelo.addRow(new Object[]{id, tp.getNome()});

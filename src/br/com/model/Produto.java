@@ -1,6 +1,6 @@
 package br.com.model;
 
-public abstract class Produto {
+public class Produto {
 
     private int id_produto;
     private double preco;
@@ -8,6 +8,7 @@ public abstract class Produto {
     private String descricao;
     private String nome;
     private TipoProduto tipoProduto;
+    private int quantidade;
 
     public Produto() {
     }
@@ -60,8 +61,16 @@ public abstract class Produto {
         this.tipoProduto = tipoProduto;
     }
 
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
     @Override
     public String toString() {
-        return "Produto{" + "id_produto=" + id_produto + ", preco=" + preco + ", fornecedor=" + fornecedor + ", descricao=" + descricao + ", nome=" + nome + ", tipoProduto=" + tipoProduto + '}';
+        return nome;
     }
 }

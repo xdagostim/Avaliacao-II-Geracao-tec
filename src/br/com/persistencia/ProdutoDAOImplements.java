@@ -1,8 +1,7 @@
 package br.com.persistencia;
 
-import br.com.model.Game;
-import br.com.model.TipoProduto;
-import br.com.persistencia.dao.GameDAO;
+import br.com.model.Produto;
+import br.com.persistencia.dao.ProdutoDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,40 +9,37 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import javax.swing.JOptionPane;
 
-public class GameDAOImplements implements GameDAO {
+public class ProdutoDAOImplements implements ProdutoDAO {
 
-    private static final String INSERT = "insert into game (nome, descricao, classificacao_etaria, tipo_midia, tipo_genero, quantidade, preco) values (?, ?, ?, ?, ?, ?, ?);";
-    private static final String LIST = "select * from game;";
-    private static final String REMOVE = "delete from game where id_game = ?;";
-    private static final String UPDATE = "update game set nome = ?, descricao = ?, classificacao_etaria = ?, tipo_midia = ?, tipo_genero = ?, quantidade = ?, preco =? where id_game = ?;";
-    private static final String LISTBYID = "select * from game where  id_game = ?;";
-    private static final String LISTBYNOME = "select * from game where nome like ?;";
+    private static final String INSERT = "insert into produto (nome, descricao, tipoproduto, quantidade, preco) values (?, ?, ?, ?, ?);";
+    private static final String LIST = "select * from produto;";
+    private static final String REMOVE = "delete from produto where id_produto = ?;";
+    private static final String UPDATE = "update produto set nome = ? where id_produto = ?;";
+    private static final String LISTBYID = "select * from produto where id_produto = ?;";
+    private static final String LISTBYNOME = "select * from produto where nome like ?;";
 
-    public int salve(Game g) {
-        if (g.getId_game() == 0) {
-            return insert(g);
+    public int salve(Produto p) {
+        if (p.getId_produto() == 0) {
+            return insert(p);
         } else {
-            return update(g);
+            return update(p);
         }
     }
 
-    private int insert(Game g) {
+    private int insert(Produto p) {
         Connection con = null;
         PreparedStatement pstm = null;
         int retorno = -1;
         try {
             con = ConnectionFactory.getConnection();
             pstm = con.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
-            pstm.setString(1, g.getNome());
-            pstm.setString(2, g.getDescricao());
-            pstm.setInt(3, g.getClassificacaoEtaria());
-            pstm.setString(4, g.getTipoMidia());
-            pstm.setString(5, g.getTipoGenero());
-            pstm.setInt(6, g.getQuantidade());
-            pstm.setDouble(7, g.getPreco());
+            pstm.setString(1, p.getNome());
+            pstm.setString(2, p.getDescricao());
+            pstm.setInt(3, p.getTipoProduto().getId_categoria());
+            pstm.setInt(4, p.getQuantidade());
+            pstm.setDouble(5, p.getPreco());
 
             pstm.execute();
 
@@ -52,8 +48,6 @@ public class GameDAOImplements implements GameDAO {
                     retorno = rs.getInt(1);
                 }
             }
-
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,
                     "Erro ao inserir: " + e);
@@ -66,23 +60,18 @@ public class GameDAOImplements implements GameDAO {
         }
     }
 
-    private int update(Game g) {
+    private int update(Produto p) {
         Connection con = null;
         PreparedStatement pstm = null;
         int retorno = -1;
         try {
             con = ConnectionFactory.getConnection();
             pstm = con.prepareStatement(UPDATE);
-            pstm.setString(1, g.getNome());
-            pstm.setString(2, g.getDescricao());
-            pstm.setInt(3, g.getClassificacaoEtaria());
-            pstm.setString(4, g.getTipoMidia());
-            pstm.setString(5, g.getTipoGenero());
-            pstm.setInt(6, g.getQuantidade());
-            pstm.setDouble(7, g.getPreco());
+            pstm.setString(1, p.getNome());
+            pstm.setInt(2, p.getId_produto());
             pstm.execute();
 
-            retorno = g.getId_game();
+            retorno = p.getId_produto();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao editar os dados: " + e.getMessage());
@@ -96,7 +85,7 @@ public class GameDAOImplements implements GameDAO {
         return retorno;
     }
 
-    public boolean remove(int id_game) {
+    public boolean remove(int codigo) {
         boolean status = false;
         Connection con = null;
         PreparedStatement pstm = null;
@@ -104,12 +93,12 @@ public class GameDAOImplements implements GameDAO {
         try {
             con = ConnectionFactory.getConnection();
             pstm = con.prepareStatement(REMOVE);
-            pstm.setInt(1, id_game);
+            pstm.setInt(1, codigo);
             pstm.execute();
             status = true;
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao excluir game: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao excluir o produto: " + e.getMessage());
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm);
@@ -120,11 +109,11 @@ public class GameDAOImplements implements GameDAO {
         return status;
     }
 
-    public List<Game> listAll() {
+    public List<Produto> listAll() {
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        List<Game> games = new ArrayList<>();
+        List<Produto> produto = new ArrayList<>();
 
         try {
             con = ConnectionFactory.getConnection();
@@ -132,20 +121,17 @@ public class GameDAOImplements implements GameDAO {
             rs = pstm.executeQuery();
 
             while (rs.next()) {
-                Game g = new Game();
+                Produto p = new Produto() {
+                };
 
-                g.setId_game(rs.getInt("id_game"));
-                g.setNome(rs.getString("nome"));
-                g.setDescricao(rs.getString("descricao"));
-                g.setClassificacaoEtaria(rs.getInt("classificacao_etaria"));
-                g.setTipoMidia(rs.getString("tipo_midia"));
-                g.setTipoGenero(rs.getString("tipo_genero"));
-                g.setQuantidade(rs.getInt("quantidade"));
-                g.setPreco(rs.getDouble("preco"));
-                games.add(g);
+                p.setId_produto(rs.getInt("id_produto"));
+                p.setNome(rs.getString("nome"));
+                p.setPreco(rs.getDouble("preco"));
+
+                produto.add(p);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao listar os games: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao listar os produto: " + e.getMessage());
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm, rs);
@@ -153,35 +139,28 @@ public class GameDAOImplements implements GameDAO {
                 JOptionPane.showMessageDialog(null, "Erro ao fechar conexão: " + e.getMessage());
             }
         }
-        return games;
+        return produto;
     }
 
-    public Game listById(int id_game) {
+    public Produto listById(int codigo) {
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        Game g = new Game();
+        Produto p = new Produto();
 
         try {
             con = ConnectionFactory.getConnection();
             pstm = con.prepareStatement(LISTBYID);
-            pstm.setInt(1, id_game);
+            pstm.setInt(1, codigo);
             rs = pstm.executeQuery();
 
             while (rs.next()) {
-                g.setId_game(rs.getInt("id_game"));
-                g.setNome(rs.getString("nome"));
-                g.setDescricao(rs.getString("descricao"));
-                g.setClassificacaoEtaria(rs.getInt("classificacao_etaria"));
-                g.setTipoMidia(rs.getString("tipo_midia"));
-                g.setTipoGenero(rs.getString("tipo_genero"));
-                g.setQuantidade(rs.getInt("quantidade"));
-                g.setPreco(rs.getDouble("preco"));
-
+                p.setId_produto(rs.getInt("id_produto"));
+                p.setNome(rs.getString("nome"));
 
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao listar game: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao listar produto: " + e.getMessage());
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm, rs);
@@ -190,14 +169,14 @@ public class GameDAOImplements implements GameDAO {
             }
         }
 
-        return g;
+        return p;
     }
 
-    public List<Game> listByNome(String nome) {
+    public List<Produto> listByNome(String nome) {
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        List<Game> games = new ArrayList<>();
+        List<Produto> produtos = new ArrayList<>();
 
         try {
             con = ConnectionFactory.getConnection();
@@ -206,18 +185,13 @@ public class GameDAOImplements implements GameDAO {
             rs = pstm.executeQuery();
 
             while (rs.next()) {
-                Game g = new Game();
-                g.setNome(rs.getString("nome"));
-                g.setDescricao(rs.getString("descricao"));
-                g.setClassificacaoEtaria(rs.getInt("classificacao_etaria"));
-                g.setTipoMidia(rs.getString("tipo_midia"));
-                g.setTipoGenero(rs.getString("tipo_genero"));
-                g.setQuantidade(rs.getInt("quantidade"));
-                g.setPreco(rs.getDouble("preco"));
-                games.add(g);
+                Produto p = new Produto();
+                p.setId_produto(rs.getInt("id_produto"));
+                p.setNome(rs.getString("nome"));
+                produtos.add(p);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao pesquisar game! " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao pesquisar o produto! " + e.getMessage());
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm, rs);
@@ -225,6 +199,6 @@ public class GameDAOImplements implements GameDAO {
                 JOptionPane.showMessageDialog(null, "Erro ao fechar conexão! " + e.getMessage());
             }
         }
-        return games;
+        return produtos;
     }
 }

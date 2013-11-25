@@ -8,8 +8,7 @@ import java.util.List;
 public class GameController {
 
     public int salvar(Game g) {
-        GameDAO dao =
-                new GameDAOImplements();
+        GameDAO dao = new GameDAOImplements();
         return dao.salve(g);
     }
 
@@ -23,9 +22,9 @@ public class GameController {
         return dao.listByNome(nome);
     }
 
-    public Game listById(int id_funcionario) {
+    public Game listById(int id_game) {
         GameDAO dao = new GameDAOImplements();
-        return dao.listById(id_funcionario);
+        return dao.listById(id_game);
     }
 
     public boolean remove(int id) {

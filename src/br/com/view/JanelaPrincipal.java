@@ -36,6 +36,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btFornecedor = new javax.swing.JButton();
         btLogout = new javax.swing.JButton();
         btTipoProduto = new javax.swing.JButton();
+        btProduto = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -50,14 +51,14 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btClientes.setBackground(new java.awt.Color(255, 255, 255));
-        btClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Age-Child-Male-Light-icon.png"))); // NOI18N
+        btClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Todd-Cube-icon.png"))); // NOI18N
         btClientes.setText("Clientes");
         btClientes.setBorderPainted(false);
         btClientes.setContentAreaFilled(false);
         btClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Groups-Meeting-Light-icon.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/1up-icon.png"))); // NOI18N
         jButton2.setText("Funcionários");
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
@@ -69,7 +70,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/competitors-icon.png"))); // NOI18N
+        btFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/TV-icon.png"))); // NOI18N
         btFornecedor.setText("Fornecedor");
         btFornecedor.setBorderPainted(false);
         btFornecedor.setContentAreaFilled(false);
@@ -81,7 +82,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Apps-session-logout-icon.png"))); // NOI18N
+        btLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Transformer-icon.png"))); // NOI18N
         btLogout.setText("Logout");
         btLogout.setToolTipText("Logout");
         btLogout.setBorderPainted(false);
@@ -94,7 +95,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btTipoProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Actions-bookmark-new-list-icon.png"))); // NOI18N
+        btTipoProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Nes-Pad-icon.png"))); // NOI18N
         btTipoProduto.setText("Categoria");
         btTipoProduto.setToolTipText("");
         btTipoProduto.setBorderPainted(false);
@@ -104,6 +105,18 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btTipoProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTipoProdutoActionPerformed(evt);
+            }
+        });
+
+        btProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/Nes-Console-icon.png"))); // NOI18N
+        btProduto.setText("Produto");
+        btProduto.setBorderPainted(false);
+        btProduto.setContentAreaFilled(false);
+        btProduto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btProduto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btProdutoActionPerformed(evt);
             }
         });
 
@@ -120,7 +133,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 .addComponent(btFornecedor)
                 .addGap(18, 18, 18)
                 .addComponent(btTipoProduto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btProduto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btLogout)
                 .addContainerGap())
         );
@@ -129,6 +144,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btProduto)
                     .addComponent(btTipoProduto)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -186,7 +202,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         fl.setLocationRelativeTo(null);
         fl.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-    
+
     private void btLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLogoutActionPerformed
         dispose();
         JanelaLogin jl = new JanelaLogin();
@@ -203,6 +219,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         tpl.setLocationRelativeTo(null);
         tpl.setVisible(true);
     }//GEN-LAST:event_btTipoProdutoActionPerformed
+
+    private void btProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProdutoActionPerformed
+        ProdutoListaGUI tpl = new ProdutoListaGUI();
+        tpl.setLocationRelativeTo(null);
+        tpl.setVisible(true);
+    }//GEN-LAST:event_btProdutoActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -210,6 +232,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btClientes;
     private javax.swing.JButton btFornecedor;
     private javax.swing.JButton btLogout;
+    private javax.swing.JButton btProduto;
     private javax.swing.JButton btTipoProduto;
     private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;

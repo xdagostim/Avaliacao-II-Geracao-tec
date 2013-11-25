@@ -1,61 +1,62 @@
 package br.com.view;
 
-import br.com.controller.FuncionarioController;
-import br.com.model.Funcionario;
+import br.com.controller.GameController;
+import br.com.controller.ProdutoController;
+import br.com.controller.TipoProdutoController;
+import br.com.model.Game;
+import br.com.model.Produto;
+import br.com.model.TipoProduto;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author guest01
- */
 public class ProdutoInserirGUI extends javax.swing.JFrame {
 
-    private DefaultTableModel modelo;
+    private DefaultTableModel modeloproduto;
+    private DefaultTableModel modelogame;
     private int linhaSelecionada;
 
-    public ProdutoInserirGUI(DefaultTableModel modelo) {
+    public ProdutoInserirGUI(DefaultTableModel modeloproduto, DefaultTableModel modelogames) {
         initComponents();
-        this.modelo = modelo;
+        this.modeloproduto = modeloproduto;
+        this.modelogame = modelogames;
+        carregarCombo();
     }
 
-    public ProdutoInserirGUI(DefaultTableModel modelo, int linhaSelecionada, int idFuncionario) {
+    public ProdutoInserirGUI(DefaultTableModel modeloproduto, DefaultTableModel modelogame, int linhaSelecionada, int id, int tipo) {
 
-        this.modelo = modelo;
+        this.modeloproduto = modeloproduto;
+        this.modelogame = modelogame;
         this.linhaSelecionada = linhaSelecionada;
         initComponents();
-        FuncionarioController uc = new FuncionarioController();
-        Funcionario f = uc.listById(idFuncionario);
-        txCodigoProduto.setText(Integer.toString(f.getId_funcionario()));
-        txNomeProduto.setText(f.getNome());
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String data = sdf.format(f.getDataNascimento());
-        txDataNascimento.setText(data);
-        txRg.setText(f.getRg());
-        txCpf.setText(f.getCpf());
-        txTelefone.setText(f.getTelefone());
-        txRua.setText(f.getRua());
-        txNumero.setText(Integer.toString(f.getNumero()));
-        txComplemento.setText(f.getComplemento());
-        txBairro.setText(f.getBairro());
-        txCidade.setText(f.getCidade());
-        txEstado.setText(f.getEstado());
-        txCep.setText(f.getCep());
-        txCargo.setText(f.getCargo());
-        txCargaHoraria.setText(Double.toString(f.getCargaHoraria()));
-        txSalario.setText(Double.toString(f.getSalario()));
-        txFornecedor.setText(f.getCtps());
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy");
-        String data2 = sdf2.format(f.getDataAdmissao());
-        txDataAdmissao.setText(data2);
-        if (f.getSexo().equals("Feminino")) {
-            rbFeminino.setSelected(true);
-        } else if (f.getSexo().equals("Masculino")) {
-            rbMasculino.setSelected(true);
+
+        if (tipo == 1) {
+            GameController gc = new GameController();
+            Game g = gc.listById(id);
+            txCodigoProduto.setText(Integer.toString(g.getId_game()));
+            txNomeProduto.setText(g.getNome());
+            txDescricao.setText(g.getDescricao());
+            txIdade.setText(String.valueOf(g.getClassificacaoEtaria()));
+            txMidia.setText(g.getTipoMidia());
+            txGenero.setText(g.getTipoGenero());
+            txQuantidade.setText(String.valueOf(g.getQuantidade()));
+            txPreco.setText(String.valueOf(g.getPreco()));
+            cbCategoria.removeAllItems();
+            cbCategoria.addItem("Games");
+        } else {
+            ProdutoController pc = new ProdutoController();
+            Produto p = pc.listById(id);
+            txCodigoProduto.setText(Integer.toString(p.getId_produto()));
+            txNomeProduto.setText(p.getNome());
+            txDescricao.setText(p.getDescricao());
+            txQuantidade.setText(String.valueOf(p.getQuantidade()));
+            txPreco.setText(String.valueOf(p.getPreco()));
+            cbCategoria.removeAllItems();
+            cbCategoria.addItem("");
         }
-        txQuantidade.setText(f.getLogin());
-        txSenha.setText(f.getSenha());
     }
 
     @SuppressWarnings("unchecked")
@@ -72,7 +73,6 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
         txNomeProduto = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         btSalvarProduto = new javax.swing.JButton();
         btLimparProduto = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
@@ -81,7 +81,7 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
         btSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txDescricao = new javax.swing.JTextArea();
-        jComboBox1 = new javax.swing.JComboBox();
+        cbCategoria = new javax.swing.JComboBox();
         jLabel24 = new javax.swing.JLabel();
         txPreco = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
@@ -91,16 +91,17 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         txIdade = new javax.swing.JTextField();
         txFornecedor = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
 
         jLabel15.setText("jLabel15");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Cadastro de Produtos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Cadastro de Produtos", 2, 2));
 
         jLabel1.setText("Código: ");
 
@@ -112,8 +113,6 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
         jLabel7.setText("DADOS PRODUTO: ");
 
         jLabel17.setText("Categoria:");
-
-        jLabel20.setText("Fornecedor:");
 
         btSalvarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/ok-icon2.png"))); // NOI18N
         btSalvarProduto.setToolTipText("Salvar");
@@ -154,7 +153,17 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
         txDescricao.setRows(5);
         jScrollPane1.setViewportView(txDescricao);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbCategoria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbCategoriaItemStateChanged(evt);
+            }
+        });
+        cbCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCategoriaActionPerformed(evt);
+            }
+        });
 
         jLabel24.setText("Preço:");
 
@@ -164,6 +173,8 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
 
         jLabel28.setText("Classificação Etária:");
 
+        jLabel29.setText("Fornecedor:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -171,6 +182,17 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txFornecedor)
+                        .addGap(123, 123, 123)
+                        .addComponent(btSalvarProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btLimparProduto))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -183,44 +205,32 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
                         .addComponent(jLabel24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel25)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1))
-                            .addComponent(jLabel7)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel28)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txIdade)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel27)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txMidia, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addGap(18, 18, 18)
-                        .addComponent(txFornecedor)
-                        .addGap(18, 18, 18)
-                        .addComponent(btSalvarProduto)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txNomeProduto))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btLimparProduto)))
+                        .addComponent(txCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txIdade)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txMidia, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -246,7 +256,7 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27)
                     .addComponent(txMidia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28)
@@ -261,11 +271,11 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
                     .addComponent(txGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel20)
-                        .addComponent(txFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btLimparProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btLimparProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel29)
+                        .addComponent(txFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -286,108 +296,123 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
     private void btLimparProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparProdutoActionPerformed
         txCodigoProduto.setText("");
         txNomeProduto.setText("");
-        txDataNascimento.setText("");
-        txRg.setText("");
-        txCpf.setText("");
-        txTelefone.setText("");
-        txRua.setText("");
-        txNumero.setText("");
-        txComplemento.setText("");
-        txBairro.setText("");
-        txCidade.setText("");
-        txEstado.setText("");
-        txCep.setText("");
-        txCargo.setText("");
-        txCargaHoraria.setText("");
-        txSalario.setText("");
-        txFornecedor.setText("");
-        txDataAdmissao.setText("");
-        grupoSexo.clearSelection();
+        txDescricao.setText("");
+        //categoria.
+        txIdade.setText("");
+        txMidia.setText("");
+        txGenero.setText("");
         txQuantidade.setText("");
-        txSenha.setText("");
+        txPreco.setText("");
     }//GEN-LAST:event_btLimparProdutoActionPerformed
 
     private void btSalvarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarProdutoActionPerformed
-        Funcionario f = new Funcionario();
-
-        if (!(txCodigoProduto.getText().equals("")) || (txCodigoProduto.getText().equals(null))) {
-            f.setId_funcionario(Integer.parseInt(txCodigoProduto.getText()));
-        }
-        f.setNome(txNomeProduto.getText());
-        try {
-            String data = txDataNascimento.getText();
-            f.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(data));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro na conversão da data: " + e);
-        }
-        f.setRg(txRg.getText());
-        f.setCpf(txCpf.getText());
-        f.setTelefone(txTelefone.getText());
-        f.setRua(txRua.getText());
-        f.setNumero(Integer.parseInt(txNumero.getText()));
-        f.setComplemento(txComplemento.getText());
-        f.setBairro(txBairro.getText());
-        f.setCidade(txCidade.getText());
-        f.setEstado(txEstado.getText());
-        f.setCep(txCep.getText());
-        f.setCargo(txCargo.getText());
-        f.setCargaHoraria(Double.parseDouble(txCargaHoraria.getText()));
-        f.setSalario(Double.parseDouble(txSalario.getText()));
-        f.setCtps(txFornecedor.getText());
-        try {
-            String data = txDataAdmissao.getText();
-            f.setDataAdmissao(new SimpleDateFormat("dd/MM/yyyy").parse(data));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro na conversão da data: " + e);
-        }
-        if (rbFeminino.isSelected()) {
-            f.setSexo("Feminino");
-        } else if (rbMasculino.isSelected()) {
-            f.setSexo("Masculino");
-        }
-        f.setLogin(txQuantidade.getText());
-        f.setSenha(txSenha.getText());
-
-        FuncionarioController fc = new FuncionarioController();
+        Game g = new Game();
+        Produto p = new Produto();
 
 
-        if (f.getId_funcionario() == 0) {
-            int id = fc.salvar(f);
-            if (id > 0) {
-                modelo.addRow(new Object[]{id, f.getNome(), f.getSalario(), f.getLogin()});
-                JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!");
+        TipoProduto tp = new TipoProduto();
+        tp = (TipoProduto) cbCategoria.getSelectedItem();
+        if (tp.getNome().equalsIgnoreCase("Games")) {
+            g.setNome(txNomeProduto.getText());
+            g.setDescricao(txDescricao.getText());
+            g.setQuantidade(Integer.parseInt(txQuantidade.getText()));
+            g.setPreco(Double.parseDouble(txPreco.getText()));
+            g.setClassificacaoEtaria(Integer.parseInt(txIdade.getText()));
+            g.setTipoMidia(txMidia.getText());
+            g.setTipoGenero(txGenero.getText());
+            if (!(txCodigoProduto.getText().equals("")) || (txCodigoProduto.getText().equals(null))) {
+                g.setId_game(Integer.parseInt(txCodigoProduto.getText()));
             }
+            GameController gc = new GameController();
+
+            if (g.getId_game() == 0) {
+                int id = gc.salvar(g);
+                if (id > 0) {
+                    modelogame.addRow(new Object[]{id, g.getNome(), g.getDescricao(), g.getPreco()});
+                    JOptionPane.showMessageDialog(null, "Game cadastrado com sucesso!");
+                }
+            } else {
+                int id = gc.salvar(g);
+                if (id > 0) {
+                    modelogame.removeRow(linhaSelecionada);
+                    modelogame.addRow(new Object[]{id, g.getNome(), g.getDescricao(), g.getPreco()});
+                    JOptionPane.showMessageDialog(null, "Game atualizado com sucesso!");
+                }
+            }
+
         } else {
-            int id = fc.salvar(f);
-            if (id > 0) {
-                modelo.removeRow(linhaSelecionada);
-                modelo.addRow(new Object[]{id, f.getNome(), f.getSalario(), f.getLogin()});
-                JOptionPane.showMessageDialog(null, "Usuário atualizado com sucesso!");
+            if (!(txCodigoProduto.getText().equals("")) || (txCodigoProduto.getText().equals(null))) {
+                p.setId_produto(Integer.parseInt(txCodigoProduto.getText()));
+            }
+            p.setTipoProduto(tp);
+            p.setNome(txNomeProduto.getText());
+            p.setDescricao(txDescricao.getText());
+            p.setQuantidade(Integer.parseInt(txQuantidade.getText()));
+            p.setPreco(Double.parseDouble(txPreco.getText()));
+            ProdutoController pc = new ProdutoController();
+
+            if (p.getId_produto() == 0) {
+                int id = pc.salvar(p);
+                if (id > 0) {
+                    modeloproduto.addRow(new Object[]{id, p.getNome(), p.getPreco()});
+                    JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+                }
+            } else {
+                int id = pc.salvar(p);
+                if (id > 0) {
+                    modeloproduto.removeRow(linhaSelecionada);
+                    modeloproduto.addRow(new Object[]{id, p.getNome(), p.getPreco()});
+                    JOptionPane.showMessageDialog(null, "Produto atualizado com sucesso!");
+                }
             }
         }
+
+
         dispose();
     }//GEN-LAST:event_btSalvarProdutoActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         dispose();
     }//GEN-LAST:event_btSairActionPerformed
+
+    private void cbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriaActionPerformed
+//        TipoProduto tpProdutoSelecionado = (TipoProduto)cbCategoria.getSelectedItem();
+//        if (!(tpProdutoSelecionado.getNome()).equalsIgnoreCase("Games")){
+//           txMidia.setEditable(false);
+//        }
+    }//GEN-LAST:event_cbCategoriaActionPerformed
+
+    private void cbCategoriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbCategoriaItemStateChanged
+        if (this.isVisible()) {
+            TipoProduto tpProdutoSelecionado = (TipoProduto) cbCategoria.getSelectedItem();
+            if (!(tpProdutoSelecionado.getNome()).equalsIgnoreCase("Games")) {
+                txMidia.setEditable(false);
+                txGenero.setEditable(false);
+                txIdade.setEditable(false);
+            } else if ((tpProdutoSelecionado.getNome()).equalsIgnoreCase("Games")) {
+                txMidia.setEditable(true);
+                txGenero.setEditable(true);
+                txIdade.setEditable(true);
+            }
+        }
+    }//GEN-LAST:event_cbCategoriaItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLimparProduto;
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSalvarProduto;
+    private javax.swing.JComboBox cbCategoria;
     private javax.swing.ButtonGroup grupoSexo;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
@@ -402,4 +427,20 @@ public class ProdutoInserirGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txPreco;
     private javax.swing.JTextField txQuantidade;
     // End of variables declaration//GEN-END:variables
+
+    private void carregarCombo() {
+        //Declarar uma variável do tipo comboDefault para poder alterar os dados
+        DefaultComboBoxModel comboModel = (DefaultComboBoxModel) cbCategoria.getModel();
+        //remover todos os itens do combo
+        comboModel.removeAllElements();
+        //Buscar na base de dados os cursos cadastrados
+        List<TipoProduto> tipoprodutos = new ArrayList<>();
+        TipoProdutoController pc = new TipoProdutoController();
+        tipoprodutos = pc.listarTodos();
+        //Preencher o combo com os cursos que estão na lista
+        for (int linha = 0; linha < tipoprodutos.size(); linha++) {
+            TipoProduto tp = tipoprodutos.get(linha);
+            comboModel.addElement(tp);
+        }
+    }
 }

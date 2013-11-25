@@ -220,7 +220,6 @@ public class JanelaLogin extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btSairKeyPressed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEntrar;
     private javax.swing.JButton btSair;

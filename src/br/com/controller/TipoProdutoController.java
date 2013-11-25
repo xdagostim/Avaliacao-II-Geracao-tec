@@ -1,4 +1,3 @@
-
 package br.com.controller;
 
 import br.com.model.TipoProduto;
@@ -7,7 +6,7 @@ import br.com.persistencia.dao.TipoProdutoDAO;
 import java.util.List;
 
 public class TipoProdutoController {
-    
+
     public int salvar(TipoProduto tp) {
         TipoProdutoDAO dao =
                 new TipoProdutoDAOImplements();
@@ -33,5 +32,4 @@ public class TipoProdutoController {
         TipoProdutoDAO dao = new TipoProdutoDAOImplements();
         return dao.remove(id);
     }
-    
 }

@@ -111,7 +111,9 @@
                       <Component id="btFornecedor" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btTipoProduto" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="303" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btProduto" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="btLogout" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -122,6 +124,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btProduto" min="-2" max="-2" attributes="0"/>
                           <Component id="btTipoProduto" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
@@ -144,7 +147,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/br/com/imagens/Age-Child-Male-Light-icon.png"/>
+                  <Image iconType="3" name="/br/com/imagens/Todd-Cube-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -156,7 +159,7 @@
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/br/com/imagens/Groups-Meeting-Light-icon.png"/>
+                  <Image iconType="3" name="/br/com/imagens/1up-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -171,7 +174,7 @@
             <Component class="javax.swing.JButton" name="btFornecedor">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/br/com/imagens/competitors-icon.png"/>
+                  <Image iconType="3" name="/br/com/imagens/TV-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fornecedor"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -186,7 +189,7 @@
             <Component class="javax.swing.JButton" name="btLogout">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/br/com/imagens/Apps-session-logout-icon.png"/>
+                  <Image iconType="3" name="/br/com/imagens/Transformer-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Logout"/>
                 <Property name="toolTipText" type="java.lang.String" value="Logout"/>
@@ -202,7 +205,7 @@
             <Component class="javax.swing.JButton" name="btTipoProduto">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/br/com/imagens/Actions-bookmark-new-list-icon.png"/>
+                  <Image iconType="3" name="/br/com/imagens/Nes-Pad-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Categoria"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -213,6 +216,21 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btTipoProdutoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btProduto">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/br/com/imagens/Nes-Console-icon.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Produto"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btProdutoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
